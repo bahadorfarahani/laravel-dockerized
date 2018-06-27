@@ -35,7 +35,7 @@ ___
 3. Open your favorite browser :
 
     * [http://localhost:8000](http://localhost:8000/)
-    * [https://localhost:3000](https://localhost:3000/) ([HTTPS](#configure-nginx-with-ssl-certificates) not configured by default)
+    * [https://localhost:3000](https://localhost:3001/) ([HTTPS](#configure-nginx-with-ssl-certificates) not configured by default)
     * [http://localhost:8080](http://localhost:8080/) PHPMyAdmin (username: dev, password: dev)
 
 4. Stop and clear services
