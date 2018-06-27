@@ -1,81 +1,6 @@
-# Nginx PHP MySQL [![Build Status](https://travis-ci.org/nanoninja/docker-nginx-php-mysql.svg?branch=master)](https://travis-ci.org/nanoninja/docker-nginx-php-mysql) [![GitHub version](https://badge.fury.io/gh/nanoninja%2Fdocker-nginx-php-mysql.svg)](https://badge.fury.io/gh/nanoninja%2Fdocker-nginx-php-mysql)
+Docker running Nginx, PHP-FPM, Composer, mariadb and PHPMyAdmin.
 
-Docker running Nginx, PHP-FPM, Composer, MySQL and PHPMyAdmin.
-
-## Overview
-
-1. [Install prerequisites](#install-prerequisites)
-
-    Before installing project make sure the following prerequisites have been met.
-
-2. [Clone the project](#clone-the-project)
-
-    We’ll download the code from its repository on GitHub.
-
-3. [Configure Nginx With SSL Certificates](#configure-nginx-with-ssl-certificates) [`Optional`]
-
-    We'll generate and configure SSL certificate for nginx before running server.
-
-4. [Configure Xdebug](#configure-xdebug) [`Optional`]
-
-    We'll configure Xdebug for IDE (PHPStorm or Netbeans).
-
-5. [Run the application](#run-the-application)
-
-    By this point we’ll have all the project pieces in place.
-
-6. [Use Makefile](#use-makefile) [`Optional`]
-
-    When developing, you can use `Makefile` for doing recurrent operations.
-
-7. [Use Docker Commands](#use-docker-commands)
-
-    When running, you can use docker commands for doing recurrent operations.
-
-___
-
-## Install prerequisites
-
-For now, this project has been mainly created for Unix `(Linux/MacOS)`. Perhaps it could work on Windows.
-
-All requisites should be available for your distribution. The most important are :
-
-* [Git](https://git-scm.com/downloads)
-* [Docker](https://docs.docker.com/engine/installation/)
-* [Docker Compose](https://docs.docker.com/compose/install/)
-
-Check if `docker-compose` is already installed by entering the following command : 
-
-```sh
-which docker-compose
-```
-
-Check Docker Compose compatibility :
-
-* [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/)
-
-The following is optional but makes life more enjoyable :
-
-```sh
-which make
-```
-
-On Ubuntu and Debian these are available in the meta-package build-essential. On other distributions, you may need to install the GNU C++ compiler separately.
-
-```sh
-sudo apt install build-essential
-```
-
-### Images to use
-
-* [Nginx](https://hub.docker.com/_/nginx/)
-* [MySQL](https://hub.docker.com/_/mysql/)
-* [PHP-FPM](https://hub.docker.com/r/nanoninja/php-fpm/)
-* [Composer](https://hub.docker.com/_/composer/)
-* [PHPMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
-* [Generate Certificate](https://hub.docker.com/r/jacoelho/generate-certificate/)
-
-You should be careful when installing third party web servers such as MySQL or Nginx.
+<h1>Dockerized Cakephp 3.x project
 
 This project use the following ports :
 
@@ -84,55 +9,7 @@ This project use the following ports :
 | MySQL      | 8989 |
 | PHPMyAdmin | 8080 |
 | Nginx      | 8000 |
-| Nginx SSL  | 3000 |
-
-___
-
-## Clone the project
-
-To install [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git), download it and install following the instructions :
-
-```sh
-git clone https://github.com/nanoninja/docker-nginx-php-mysql.git
-```
-
-Go to the project directory :
-
-```sh
-cd docker-nginx-php-mysql
-```
-
-### Project tree
-
-```sh
-.
-├── Makefile
-├── README.md
-├── data
-│   └── db
-│       ├── dumps
-│       └── mysql
-├── doc
-├── docker-compose.yml
-├── etc
-│   ├── nginx
-│   │   ├── default.conf
-│   │   └── default.template.conf
-│   ├── php
-│   │   └── php.ini
-│   └── ssl
-└── web
-    ├── app
-    │   ├── composer.json.dist
-    │   ├── phpunit.xml.dist
-    │   ├── src
-    │   │   └── Foo.php
-    │   └── test
-    │       ├── FooTest.php
-    │       └── bootstrap.php
-    └── public
-        └── index.php
-```
+| Nginx SSL  | 3001 |
 
 ___
 
@@ -218,42 +95,6 @@ ___
     ```sh
     sudo docker-compose down -v
     ```
-
-___
-
-## Use Makefile
-
-When developing, you can use [Makefile](https://en.wikipedia.org/wiki/Make_(software)) for doing the following operations :
-
-| Name          | Description                                  |
-|---------------|----------------------------------------------|
-| apidoc        | Generate documentation of API                |
-| clean         | Clean directories for reset                  |
-| code-sniff    | Check the API with PHP Code Sniffer (`PSR2`) |
-| composer-up   | Update PHP dependencies with composer        |
-| docker-start  | Create and start containers                  |
-| docker-stop   | Stop and clear all services                  |
-| gen-certs     | Generate SSL certificates for `nginx`        |
-| logs          | Follow log output                            |
-| mysql-dump    | Create backup of all databases               |
-| mysql-restore | Restore backup of all databases              |
-| phpmd         | Analyse the API with PHP Mess Detector       |
-| test          | Test application with phpunit                |
-
-### Examples
-
-Start the application :
-
-```sh
-sudo make docker-start
-```
-
-Show help :
-
-```sh
-make help
-```
-
 ___
 
 ## Use Docker commands
@@ -363,9 +204,3 @@ source .env && sudo docker exec -i $(sudo docker-compose ps -q mysqldb) mysql -u
     }
 ?>
 ```
-
-___
-
-## Help us
-
-Any thought, feedback or (hopefully not!)
