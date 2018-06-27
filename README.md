@@ -36,7 +36,7 @@ ___
 
     * [http://localhost:8000](http://localhost:8000/)
     * [https://localhost:3000](https://localhost:3001/) ([HTTPS](#configure-nginx-with-ssl-certificates) not configured by default)
-    * [http://localhost:8080](http://localhost:8080/) PHPMyAdmin (username: dev, password: dev)
+    * [http://localhost:8080](http://localhost:8080/) PHPMyAdmin
 
 4. Stop and clear services
 
